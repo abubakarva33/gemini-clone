@@ -10,7 +10,7 @@ import chatHistorySliceReducer from "./features/ChatHistory";
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["user"],
+  whitelist: ["user", "chatHistory"],
 };
 
 const rootReducer = combineReducers({

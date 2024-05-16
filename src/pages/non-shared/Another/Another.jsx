@@ -23,37 +23,52 @@ const Another = () => {
     console.log("Failed:", errorInfo);
   };
   return (
-    <div style={{ maxWidth: 700, margin: "auto" }} className=" formTemplate">
-      <h3 className="title"> PRAN-RFL PCML DATA INPUT</h3>
-      <Form
-        name="basic"
-        className="login-form"
-        onFinish={onFinish}
-        layout="vertical"
-        onFinishFailed={onFinishFailed}
-        autoComplete="off"
-      >
-        <Form.Item
-          name="prompt"
-          rules={[
-            {
-              required: true,
-              message: "Please input salesman name!",
-            },
-          ]}
+    <div>
+      <div style={{ maxWidth: 700, margin: "auto" }} className=" formTemplate">
+        <h3 className="title"> PRAN-RFL PCML DATA INPUT</h3>
+        <Form
+          name="basic"
+          className="login-form"
+          onFinish={onFinish}
+          layout="vertical"
+          onFinishFailed={onFinishFailed}
+          autoComplete="off"
         >
-          <div className="d-flex align-items-center formItem">
-            <p className="mb-0"> NAME</p>
-            <Input type="text" placeholder="Product Name" />
+          <Form.Item
+            name="prompt"
+            rules={[
+              {
+                required: true,
+                message: "Please input salesman name!",
+              },
+            ]}
+          >
+            <div className="d-flex align-items-center formItem">
+              <p className="mb-0"> NAME</p>
+              <Input type="text" placeholder="Product Name" />
+            </div>
+          </Form.Item>
+          <Button
+            htmlType="submit"
+            className="w-50 d-flex align-items-center justify-content-center mx-auto formBtn"
+          >
+            Submit
+          </Button>
+        </Form>
+      </div>
+      <h1>Last Res:</h1>
+      <p>{lastRes?.user}</p>
+      <p>{lastRes?.res}</p>
+      <br />
+      <h1>History</h1>
+      <div>
+        {resHistory?.map((item, ind) => (
+          <div key={ind}>
+            <p>{item?.user}</p>
+            <p>{item?.res}</p>
           </div>
-        </Form.Item>
-        <Button
-          htmlType="submit"
-          className="w-50 d-flex align-items-center justify-content-center mx-auto formBtn"
-        >
-          Submit
-        </Button>
-      </Form>
+        ))}
+      </div>
     </div>
   );
 };
