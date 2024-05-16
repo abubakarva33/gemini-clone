@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  lastRes: { user: "", res: "" },
+  history: {},
+  lastRes: { user: "", res: "", id: undefined },
   resHistory: [],
 };
 
@@ -10,8 +11,19 @@ export const chatHistorySlice = createSlice({
   initialState,
   reducers: {
     setRes: (state, { payload }) => {
-      state.lastRes = { user: payload.user, res: payload.res };
-      state.resHistory.push({ user: payload.user, res: payload.res });
+      const id = payload.id || new Date().getTime();
+      state.lastRes = {
+        user: payload.user,
+        res: payload.res,
+        id,
+      };
+
+      const ids = Object.keys(state.history);
+      if (ids.includes(id)) {
+        state.history[id]?.push(payload);
+      } else {
+        state.history[id] = [payload];
+      }
     },
   },
 });

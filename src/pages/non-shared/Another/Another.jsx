@@ -1,35 +1,52 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./Another.css";
-import { Button, Form, Input } from "antd";
+import { Button, Form, Input, Spin } from "antd";
 import run from "../../../config/gemini";
 import { setRes } from "../../../redux/features/ChatHistory";
 import { useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Another = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const lastRes = useSelector((state) => state.chatHistory.lastRes);
-  const resHistory = useSelector((state) => state.chatHistory.resHistory);
+  const { lastRes, resHistory, history } = useSelector((state) => state.chatHistory);
   const [loading, setIsLoading] = useState(false);
-  console.log({ lastRes, loading, resHistory });
 
-  const onFinish = async ({ prompt }) => {
+  // set loading and set response history //
+  const chatResponseHandler = async ({ prompt }) => {
     setIsLoading(true);
-    const data = await run(prompt);
-    dispatch(setRes({ user: prompt, res: data }));
-    data && setIsLoading(false);
+    try {
+      const data = await run(prompt);
+      const newId = id || new Date().getTime();
+      dispatch(setRes({ user: prompt, res: data, id: newId }));
+      if (!id) {
+        navigate("/" + newId);
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
+
   return (
-    <div>
+    <Spin spinning={loading}>
+      {Object.values(history).map((item) => (
+        <Link className="me-2" to={`/${item[0].id}`} key={item[0].id}>
+          {item[0].user}
+        </Link>
+      ))}
       <div style={{ maxWidth: 700, margin: "auto" }} className=" formTemplate">
         <h3 className="title"> PRAN-RFL PCML DATA INPUT</h3>
         <Form
           name="basic"
           className="login-form"
-          onFinish={onFinish}
+          onFinish={chatResponseHandler}
           layout="vertical"
           onFinishFailed={onFinishFailed}
           autoComplete="off"
@@ -56,20 +73,31 @@ const Another = () => {
           </Button>
         </Form>
       </div>
-      <h1>Last Res:</h1>
-      <p>{lastRes?.user}</p>
-      <p>{lastRes?.res}</p>
+      <button onClick={() => navigate("/")}>New Chat</button>
       <br />
-      <h1>History</h1>
       <div>
-        {resHistory?.map((item, ind) => (
-          <div key={ind}>
-            <p>{item?.user}</p>
-            <p>{item?.res}</p>
+        {id && Object.keys(history)?.length ? (
+          <div>
+            <h1>History</h1>
+            {history[id]?.map(({ user, res }, ind) => {
+              const output = res.replace(/\* \*\*(.*?)\*\* /g, "<h6>$1</h6>");
+              return (
+                <div key={ind}>
+                  <h5>
+                    {ind + 1} {user}
+                  </h5>
+                  <p>
+                    <div dangerouslySetInnerHTML={{ __html: output }} />
+                  </p>
+                </div>
+              );
+            })}
           </div>
-        ))}
+        ) : (
+          ""
+        )}
       </div>
-    </div>
+    </Spin>
   );
 };
 
