@@ -1,16 +1,22 @@
 import { useDispatch, useSelector } from "react-redux";
 import "./Another.css";
 import { Button, Form, Input } from "antd";
-import { lastResponse } from "../../../redux/features/ChatHistory";
+import run from "../../../config/gemini";
+import { setRes } from "../../../redux/features/ChatHistory";
+import { useState } from "react";
 
 const Another = () => {
   const dispatch = useDispatch();
   const lastRes = useSelector((state) => state.chatHistory.lastRes);
-  const loading = useSelector((state) => state.chatHistory.loading);
-  console.log({ lastRes, loading });
+  const resHistory = useSelector((state) => state.chatHistory.resHistory);
+  const [loading, setIsLoading] = useState(false);
+  console.log({ lastRes, loading, resHistory });
 
-  const onFinish = ({ prompt }) => {
-    dispatch(lastResponse(prompt));
+  const onFinish = async ({ prompt }) => {
+    setIsLoading(true);
+    const data = await run(prompt);
+    dispatch(setRes({ user: prompt, res: data }));
+    data && setIsLoading(false);
   };
 
   const onFinishFailed = (errorInfo) => {

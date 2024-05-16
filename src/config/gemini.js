@@ -43,6 +43,7 @@ const chatSession = model.startChat({
 async function run(prompt) {
   const result = await chatSession.sendMessage(prompt);
   console.log(result.response.text());
+  return result.response.text();
 }
 
 export default run;

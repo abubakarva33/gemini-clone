@@ -1,27 +1,21 @@
-
 import { createSlice } from "@reduxjs/toolkit";
-import run from "../../config/gemini";
 
 const initialState = {
-  lastRes: "",
-  loading: false,
+  lastRes: { user: "", res: "" },
+  resHistory: [],
 };
 
 export const chatHistorySlice = createSlice({
   name: "chatHistory",
   initialState,
   reducers: {
-    lastResponse: {
-      reducer: async (state, { payload }) => {
-        state.loading = true;
-        state.lastRes = await run(payload);
-        state.lastRes && (state.loading = false);
-        console.log(state.lastRes);
-      },
+    setRes: (state, { payload }) => {
+      state.lastRes = { user: payload.user, res: payload.res };
+      state.resHistory.push({ user: payload.user, res: payload.res });
     },
   },
 });
 
-export const { lastResponse } = chatHistorySlice.actions;
+export const { setRes } = chatHistorySlice.actions;
 const chatHistorySliceReducer = chatHistorySlice.reducer;
 export default chatHistorySliceReducer;
