@@ -1,9 +1,6 @@
-import HeaderDrawer from "./HeaderDrawer";
+import "./SideBar.css";
 
-import "./Header.css";
-// import { AiOutlineUser } from "react-icons/ai";
-
-const Header = () => {
+const SideBar = () => {
   return (
     <div className="header w-100">
       <h6>
@@ -13,10 +10,9 @@ const Header = () => {
       <div className="navItems">
         <p> ABOUT US</p>
         <p> CONTACT US</p>
-        <HeaderDrawer />
       </div>
     </div>
   );
 };
 
-export default Header;
+export default SideBar;

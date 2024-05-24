@@ -10,7 +10,7 @@ const Another = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { lastRes, resHistory, history } = useSelector((state) => state.chatHistory);
+  const { history } = useSelector((state) => state.chatHistory);
   const [loading, setIsLoading] = useState(false);
 
   // set loading and set response history //
