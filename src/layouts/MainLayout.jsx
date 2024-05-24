@@ -1,14 +1,14 @@
 import { Outlet } from "react-router-dom";
 import "./MainLayout.css";
-import SideBar from "../SideBar/SideBar";
+import SideBar from "../pages/sub-components/SideBar/SideBar";
 
 const MainLayout = () => {
   return (
     <div className="mainBody">
-      <div className="flex align-items-center px-3 bg-primary">
+      <div className="flex align-items-center px-3 border">
         <SideBar />
       </div>
-      <div className="bg-secondary">
+      <div className="border">
         <Outlet />
       </div>
     </div>

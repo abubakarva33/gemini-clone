@@ -1,16 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
-import "./Another.css";
+import { useDispatch } from "react-redux";
+import "./Homepage.css";
 import { Button, Form, Input, Spin } from "antd";
-import run from "../../../config/gemini";
-import { setRes } from "../../../redux/features/ChatHistory";
+import run from "../../config/gemini";
+import { setRes } from "../../redux/ChatHistorySlice";
 import { useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import Response from "../sub-components/Response/Response";
 
-const Another = () => {
+const Homepage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const { history } = useSelector((state) => state.chatHistory);
   const [loading, setIsLoading] = useState(false);
 
   // set loading and set response history //
@@ -36,13 +36,8 @@ const Another = () => {
 
   return (
     <Spin spinning={loading}>
-      {Object.values(history).map((item) => (
-        <Link className="me-2" to={`/${item[0].id}`} key={item[0].id}>
-          {item[0].user}
-        </Link>
-      ))}
+      <Response id={id} />
       <div style={{ maxWidth: 700, margin: "auto" }} className=" formTemplate">
-        <h3 className="title"> PRAN-RFL PCML DATA INPUT</h3>
         <Form
           name="basic"
           className="login-form"
@@ -73,32 +68,11 @@ const Another = () => {
           </Button>
         </Form>
       </div>
-      <button onClick={() => navigate("/")}>New Chat</button>
+
       <br />
-      <div>
-        {id && Object.keys(history)?.length ? (
-          <div>
-            <h1>History</h1>
-            {history[id]?.map(({ user, res }, ind) => {
-              const output = res.replace(/\* \*\*(.*?)\*\* /g, "<h6>$1</h6>");
-              return (
-                <div key={ind}>
-                  <h5>
-                    {ind + 1} {user}
-                  </h5>
-                  <p>
-                    <div dangerouslySetInnerHTML={{ __html: output }} />
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        ) : (
-          ""
-        )}
-      </div>
+      <div></div>
     </Spin>
   );
 };
 
-export default Another;
+export default Homepage;

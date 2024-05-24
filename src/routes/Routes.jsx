@@ -1,8 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
-// import Sample from "../pages/non-shared/Login/Login";
-import Another from "../pages/non-shared/Another/Another";
-import MainLayout from "../components/layouts/MainLayout";
 import ErrorPage from "./ErrorPage/ErrorPage";
+import Homepage from "../pages/Homepage/Homepage";
+import MainLayout from "../layouts/MainLayout";
 
 export const routes = createBrowserRouter([
   {
@@ -10,8 +9,8 @@ export const routes = createBrowserRouter([
     element: <MainLayout />,
     children: [
       // { path: "/sample", element: <Sample /> },
-      { path: "/", element: <Another /> },
-      { path: "/:id", element: <Another /> },
+      { path: "/", element: <Homepage /> },
+      { path: "/:id", element: <Homepage /> },
     ],
   },
   {
