@@ -40,3 +40,15 @@
   text-align: center;
   padding: 5px 10px;
 }
+
+.response {
+  position: absolute;
+  bottom: 100px; /* Adjust this value as per your form height */
+  width: 100%;
+}
+
+.login-form {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
