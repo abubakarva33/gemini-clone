@@ -1,41 +1,16 @@
-/* .formItem p {
-  background: rgb(84, 67, 73);
-  color: aliceblue;
-  padding: 5px 12px;
-  min-width: 120px;
-} */
 .ant-input {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border: none !important;
 }
-.formItem {
-  border: 1px solid black;
+.ant-input:focus {
+  box-shadow: none;
 }
+
 .ant-form-item {
   margin-bottom: 0 !important;
 }
-.ant-picker {
-  border: none;
-  width: 100%;
-}
-.ant-select {
-  width: 100% !important;
-  border: none !important;
-}
-.formBtn {
-  background: rgb(84, 67, 73);
-  color: aliceblue;
-  font-size: 20px;
-  height: 40px;
-  margin-top: 20px;
-}
-.formTemplate {
-  padding: 40px 20px;
-  margin-top: 5%;
-  background-color: rgb(247, 247, 247);
-  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-}
+
 .title {
   background: rgb(84, 67, 73);
   color: aliceblue;
@@ -46,6 +21,19 @@
 
 .response {
   position: absolute;
-  bottom: 100px; /* Adjust this value as per your form height */
+  bottom: 100px;
   width: 100%;
+}
+.input-area {
+  width: 80%;
+  border-radius: 50px;
+  padding: 0 20px;
+}
+.inputBtnSection button,
+.inputBtnSection span {
+  font-size: 22px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  margin-right: 5px;
 }
