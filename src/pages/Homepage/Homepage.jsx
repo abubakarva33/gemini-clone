@@ -6,6 +6,9 @@ import { setRes } from "../../redux/ChatHistorySlice";
 import { useEffect, useRef, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import Response from "../sub-components/Response/Response";
+import { BiImageAdd } from "react-icons/bi";
+import { HiOutlineMicrophone } from "react-icons/hi2";
+import { LuSendHorizonal } from "react-icons/lu";
 
 const Homepage = () => {
   const { id } = useParams();
@@ -52,10 +55,9 @@ const Homepage = () => {
       className="d-flex align-items-center flex-column justify-content-between"
       style={{ height: "95vh", position: "relative" }}
     >
-      <div className="  overflow-scroll" ref={responseContainerRef}>
-        <Spin spinning={loading}>
-          <Response id={id} className="response  overflow-scroll" />
-        </Spin>
+      <div className="  overflow-scroll" ref={responseContainerRef} style={{ marginBottom: 100 }}>
+        <Response id={id} className="response  overflow-y-auto" />
+        <Spin spinning={loading} height={100}></Spin>
       </div>
 
       <Form
@@ -79,12 +81,11 @@ const Homepage = () => {
             <Input type="text" placeholder="Product Name" />
           </div>
         </Form.Item>
-        <Button
-          htmlType="submit"
-          className="w-50 d-flex align-items-center justify-content-center mx-auto formBtn"
-        >
-          Submit
-        </Button>
+        <BiImageAdd />
+        <HiOutlineMicrophone />
+        <button type="submit">
+          <LuSendHorizonal />
+        </button>
       </Form>
     </div>
   );
