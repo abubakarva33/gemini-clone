@@ -1,9 +1,9 @@
-.formItem p {
+/* .formItem p {
   background: rgb(84, 67, 73);
   color: aliceblue;
   padding: 5px 12px;
   min-width: 120px;
-}
+} */
 .ant-input {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
@@ -11,6 +11,9 @@
 }
 .formItem {
   border: 1px solid black;
+}
+.ant-form-item {
+  margin-bottom: 0 !important;
 }
 .ant-picker {
   border: none;
@@ -44,11 +47,5 @@
 .response {
   position: absolute;
   bottom: 100px; /* Adjust this value as per your form height */
-  width: 100%;
-}
-
-.login-form {
-  position: absolute;
-  bottom: 0;
   width: 100%;
 }

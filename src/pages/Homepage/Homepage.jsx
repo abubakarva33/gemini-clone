@@ -9,6 +9,7 @@ import Response from "../sub-components/Response/Response";
 import { BiImageAdd } from "react-icons/bi";
 import { HiOutlineMicrophone } from "react-icons/hi2";
 import { LuSendHorizonal } from "react-icons/lu";
+import TextArea from "antd/es/input/TextArea";
 
 const Homepage = () => {
   const { id } = useParams();
@@ -62,30 +63,36 @@ const Homepage = () => {
 
       <Form
         name="basic"
-        className="login-form"
+        className="login-form d-flex align-items-end justify-content-between border w-100"
         onFinish={chatResponseHandler}
         layout="vertical"
         onFinishFailed={onFinishFailed}
         autoComplete="off"
       >
-        <Form.Item
-          name="prompt"
-          rules={[
-            {
-              required: true,
-              message: "Please input salesman name!",
-            },
-          ]}
-        >
-          <div className="d-flex align-items-center formItem">
-            <Input type="text" placeholder="Product Name" />
+        <Form.Item name="prompt" style={{ width: "85%" }}>
+          <div className="">
+            <TextArea
+              type="text"
+              placeholder="Product Name"
+              autoSize={{
+                minRows: 1,
+                maxRows: 6,
+              }}
+            />
           </div>
         </Form.Item>
-        <BiImageAdd />
-        <HiOutlineMicrophone />
-        <button type="submit">
-          <LuSendHorizonal />
-        </button>
+
+        <div>
+          <button>
+            <BiImageAdd />
+          </button>
+          <button>
+            <HiOutlineMicrophone />
+          </button>
+          <button type="submit">
+            <LuSendHorizonal />
+          </button>
+        </div>
       </Form>
     </div>
   );
