@@ -16,14 +16,11 @@ const InputSection = ({ id, setIsLoading }) => {
   const navigate = useNavigate();
   const [isRecording, setIsRecording] = useState(false);
   const [inputValue, setInputValue] = useState("");
-  const { transcript, listening, resetTranscript, browserSupportsSpeechRecognition } =
-    useSpeechRecognition();
+  const { transcript, listening, browserSupportsSpeechRecognition } = useSpeechRecognition();
 
   useEffect(() => {
     setInputValue(transcript);
   }, [transcript]);
-
-  console.log(inputValue);
 
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
@@ -39,12 +36,13 @@ const InputSection = ({ id, setIsLoading }) => {
     }
   };
 
-  const chatResponseHandler = async (values) => {
+  const chatResponseHandler = async () => {
     setIsLoading(true);
     try {
-      const data = await run(values.prompt);
+      const data = await run(inputValue);
       const newId = id || new Date().getTime();
-      dispatch(setRes({ user: values.prompt, res: data, id: newId }));
+      console.log("try");
+      dispatch(setRes({ user: inputValue, res: data, id: newId }));
       if (!id) {
         navigate("/" + newId);
       }
@@ -56,27 +54,19 @@ const InputSection = ({ id, setIsLoading }) => {
   };
 
   return (
-    <Form
-      name="basic"
-      className="input-area d-flex align-items-end justify-content-between border"
-      onFinish={() => chatResponseHandler({ prompt: inputValue })}
-      layout="vertical"
-      autoComplete="off"
-    >
-      <Form.Item name="prompt" style={{ width: "85%" }}>
-        <TextArea
-          type="text"
-          placeholder="Ask something to Bongo BOT"
-          autoSize={{
-            minRows: 1,
-            maxRows: 6,
-          }}
-          className="my-2"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-        />
-      </Form.Item>
-
+    <div className="input-area d-flex align-items-end justify-content-between border">
+      <TextArea
+        type="text"
+        placeholder="Ask something to BongoBOT"
+        autoSize={{
+          minRows: 1,
+          maxRows: 6,
+        }}
+        style={{ width: "85%" }}
+        className="my-2"
+        value={inputValue}
+        onChange={(e) => setInputValue(e.target.value)}
+      />
       <div className="inputBtnSection mb-2">
         <span>
           <Tooltip placement="top" title="Upload Image">
@@ -88,11 +78,11 @@ const InputSection = ({ id, setIsLoading }) => {
             <HiOutlineMicrophone onClick={voiceHandler} />
           </Tooltip>
         </span>
-        <button type="submit">
+        <button onClick={chatResponseHandler}>
           <LuSendHorizonal />
         </button>
       </div>
-    </Form>
+    </div>
   );
 };
 
