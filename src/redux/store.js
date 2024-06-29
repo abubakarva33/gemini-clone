@@ -3,6 +3,7 @@ import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
 import chatHistorySliceReducer from "./ChatHistorySlice";
+import customizeSliceReducer from "./customizeSlice";
 
 const persistConfig = {
   key: "root",
@@ -12,6 +13,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   chatHistory: chatHistorySliceReducer,
+  customizeSec: customizeSliceReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
