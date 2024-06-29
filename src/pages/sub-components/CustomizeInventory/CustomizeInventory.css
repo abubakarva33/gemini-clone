@@ -1,22 +1,30 @@
 .colorPickerSection .react-colorful {
-  height: 202px;
+  height: 110px;
   width: 100%;
 }
 .colorPickerSection .react-colorful__saturation {
   border-radius: 0;
 }
 .colorPickerSection .react-colorful__hue {
-  height: 20px;
+  height: 10px;
   border-radius: 0;
 }
 .colorPickerSection .react-colorful__hue-pointer {
-  width: 15px;
-  height: 15px;
+  width: 8px;
+  height: 8px;
 }
 .colorPickerSection .react-colorful__pointer {
-  height: 15px;
-  width: 15px;
+  height: 8px;
+  width: 8px;
 }
 .colorPickerSection .react-colorful__last-control {
   border-radius: 0;
+}
+.react-colorful__alpha {
+  height: 10px !important;
+}
+.dGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
 }

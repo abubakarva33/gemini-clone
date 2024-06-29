@@ -1,9 +1,7 @@
-import { useState } from "react";
 import { LuSearchCode } from "react-icons/lu";
 import { MdEditLocationAlt, MdOutlineEditLocationAlt } from "react-icons/md";
 
-const Header = () => {
-  const [isClicked, setIsClicked] = useState(false);
+const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
   return (
     <div
       className="d-flex align-items-center justify-content-between w-100 my-2"
@@ -17,15 +15,15 @@ const Header = () => {
         >
           <LuSearchCode style={{ fontSize: 20 }} /> <span>Explore Developer</span>
         </div>
-        {!isClicked ? (
+        {!isCustomizeOpen ? (
           <MdOutlineEditLocationAlt
             style={{ fontSize: 25, cursor: "pointer" }}
-            onClick={() => setIsClicked(true)}
+            onClick={() => setIsCustomizeOpen(true)}
           />
         ) : (
           <MdEditLocationAlt
             style={{ fontSize: 25, cursor: "pointer" }}
-            onClick={() => setIsClicked(false)}
+            onClick={() => setIsCustomizeOpen(false)}
           />
         )}
       </div>
