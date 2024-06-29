@@ -15,6 +15,9 @@ const Homepage = () => {
   const { history } = useSelector((state) => state.chatHistory);
   const [loading, setIsLoading] = useState(false);
   const [isCustomizeOpen, setIsCustomizeOpen] = useState(false);
+  const { sideBg, boxBorderColor, textColor, boxBorderRound } = useSelector(
+    (state) => state.customizeSec
+  );
 
   const scrollToBottom = () => {
     if (responseContainerRef.current) {
@@ -43,8 +46,15 @@ const Homepage = () => {
 
       {isCustomizeOpen && (
         <div
-          className="position-absolute overflow-auto"
-          style={{ top: 50, right: 0, height: "75vh" }}
+          className="position-absolute"
+          style={{
+            top: 50,
+            right: 0,
+            backgroundColor: sideBg,
+            border: `1px solid ${boxBorderColor}`,
+            borderRadius: boxBorderRound,
+            color: textColor,
+          }}
         >
           <CustomizeInventory />
         </div>

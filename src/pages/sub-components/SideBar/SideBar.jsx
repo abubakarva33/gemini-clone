@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 
 const SideBar = () => {
   const { history } = useSelector((state) => state.chatHistory);
+  const { mainBg, sideBg } = useSelector((state) => state.customizeSec);
   const navigate = useNavigate();
 
   // const [location, setLocation] = useState({ latitude: null, longitude: null });
@@ -56,11 +57,11 @@ const SideBar = () => {
 
   // console.log({ location, status });
   return (
-    <div className="header w-100">
+    <div className="header w-100" style={{ backgroundColor: sideBg }}>
       <div>
         <button onClick={() => navigate("/")}>New Chat</button>
         {Object.values(history).map((item, ind) => (
-          <div key={ind} className="bg-secondary rounded px-3 py-1">
+          <div key={ind} className=" rounded px-3 py-1">
             <Link className="me-2" to={`/${item[0].id}`} key={item[0].id}>
               {item[0].user}
             </Link>

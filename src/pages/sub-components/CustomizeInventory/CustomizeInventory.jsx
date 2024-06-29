@@ -6,10 +6,7 @@ import { restoreToDefault } from "../../../redux/customizeSlice";
 const CustomizeInventory = () => {
   const dispatch = useDispatch();
   const {
-    boxBg,
-    boxBorderColor,
-    boxBorderRound,
-    slotBg,
+    mainBg,
     slotBorderColor,
     textColor,
     btnColor,
@@ -22,8 +19,8 @@ const CustomizeInventory = () => {
 
   const customizeData1 = [
     {
-      type: "slotBg",
-      color: slotBg,
+      type: "mainBg",
+      color: mainBg,
       title: "SLOT BACKGROUND",
       allowAlpha: true,
     },
@@ -72,19 +69,11 @@ const CustomizeInventory = () => {
   ];
 
   return (
-    <div
-      className="customizeArea px-2 pt-2"
-      style={{
-        backgroundColor: boxBg,
-        border: `1px solid ${boxBorderColor}`,
-        borderRadius: boxBorderRound,
-        color: textColor,
-      }}
-    >
+    <div className="px-2 pt-2">
       <div
         className="d-flex align-items-center justify-content-center rounded mb-2"
         style={{
-          border: `2px solid ${slotBorderColor}`,
+          border: `1px solid ${slotBorderColor}`,
           backgroundColor: btnColor,
           fontSize: 16,
           height: 30,
@@ -95,30 +84,27 @@ const CustomizeInventory = () => {
 
       <div
         style={{
-          height: "calc(100% - 320px)",
+          height: "calc(100vh - 250px)",
           overflowX: "hidden",
           overflowY: "auto",
           width: "100%",
         }}
+        className=" dGrid"
       >
-        <div className="d-flex justify-content-between">
-          <div className="dGrid">
-            {customizeData1?.map((item, ind) => (
-              <ColorPickerSection
-                key={ind}
-                type={item?.type}
-                color={item?.color}
-                title={item?.title}
-                allowAlpha={item?.allowAlpha}
-              />
-            ))}
-          </div>
-        </div>
+        {customizeData1?.map((item, ind) => (
+          <ColorPickerSection
+            key={ind}
+            type={item?.type}
+            color={item?.color}
+            title={item?.title}
+            allowAlpha={item?.allowAlpha}
+          />
+        ))}
       </div>
       <div
         className="d-flex align-items-center justify-content-center rounded mb-2 mt-2"
         style={{
-          border: `2px solid ${slotBorderColor}`,
+          border: `1px solid ${slotBorderColor}`,
           backgroundColor: btnColor,
           fontSize: 16,
           height: 30,
