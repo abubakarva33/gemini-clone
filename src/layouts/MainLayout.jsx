@@ -5,10 +5,10 @@ import SideBar from "../pages/sub-components/SideBar/SideBar";
 const MainLayout = () => {
   return (
     <div className="mainBody">
-      <div className="flex align-items-center px-3 border overflow-auto">
+      <div className="flex align-items-center px-3 bg-secondary overflow-auto">
         <SideBar />
       </div>
-      <div className="border overflow-auto position-sticky bottom-0 left-0">
+      <div className=" overflow-auto position-sticky bottom-0 left-0">
         <Outlet />
       </div>
     </div>

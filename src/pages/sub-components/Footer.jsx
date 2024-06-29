@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <div>
+    <div style={{ fontSize: 12, marginTop: 5, marginBottom:8 }}>
       <span>BongoBOT can make mistakes. Check important info. </span>
       <span>
         Developed by

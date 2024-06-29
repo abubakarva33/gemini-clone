@@ -27,14 +27,14 @@ const Homepage = () => {
   return (
     <div
       className="d-flex align-items-center flex-column justify-content-between"
-      style={{ height: "95vh", position: "relative" }}
+      style={{ height: "100vh", position: "relative" }}
     >
       <Header />
-      <div className="  overflow-scroll" ref={responseContainerRef} style={{ marginBottom: 20 }}>
+      <div ref={responseContainerRef} style={{ marginBottom: 20 }}>
         <Response id={id} className="response  overflow-y-auto" />
         <Spin spinning={loading} height={100}></Spin>
       </div>
-      <div className="d-flex align-items-center flex-column">
+      <div className="d-flex align-items-center flex-column" style={{ width: "80%" }}>
         <InputSection {...{ id, setIsLoading }} />
         <Footer />
       </div>

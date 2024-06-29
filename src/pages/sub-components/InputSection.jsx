@@ -54,7 +54,7 @@ const InputSection = ({ id, setIsLoading }) => {
   };
 
   return (
-    <div className="input-area d-flex align-items-end justify-content-between border">
+    <div className="input-area d-flex align-items-end justify-content-between border w-100">
       <TextArea
         type="text"
         placeholder="Ask something to BongoBOT"
