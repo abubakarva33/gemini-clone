@@ -7,6 +7,7 @@ const CustomizeInventory = () => {
   const dispatch = useDispatch();
   const {
     mainBg,
+    sideBg,
     slotBorderColor,
     textColor,
     btnColor,
@@ -19,15 +20,15 @@ const CustomizeInventory = () => {
 
   const customizeData1 = [
     {
-      type: "mainBg",
-      color: mainBg,
-      title: "SLOT BACKGROUND",
+      type: "sideBg",
+      color: sideBg,
+      title: "SIDE BAR",
       allowAlpha: true,
     },
     {
-      type: "slotBorderColor",
-      color: slotBorderColor,
-      title: "SLOT BORDER",
+      type: "mainBg",
+      color: mainBg,
+      title: "BACKGROUND",
       allowAlpha: true,
     },
     {

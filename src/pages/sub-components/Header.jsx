@@ -1,7 +1,10 @@
+import { Tooltip } from "antd";
 import { LuSearchCode } from "react-icons/lu";
 import { MdEditLocationAlt, MdOutlineEditLocationAlt } from "react-icons/md";
+import { useSelector } from "react-redux";
 
 const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
+  const { sideBg } = useSelector((state) => state.customizeSec);
   return (
     <div
       className="d-flex align-items-center justify-content-between w-100 my-2"
@@ -11,20 +14,25 @@ const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
       <div className="d-flex align-items-center">
         <div
           className="px-2 py-1 rounded me-2"
-          style={{ backgroundColor: "rgba(244, 244, 244,1)", cursor: "pointer" }}
+          style={{ backgroundColor: sideBg, cursor: "pointer" }}
         >
           <LuSearchCode style={{ fontSize: 20 }} /> <span>Explore Developer</span>
         </div>
+
         {!isCustomizeOpen ? (
-          <MdOutlineEditLocationAlt
-            style={{ fontSize: 25, cursor: "pointer" }}
-            onClick={() => setIsCustomizeOpen(true)}
-          />
+          <Tooltip placement="top" title="Customize">
+            <MdOutlineEditLocationAlt
+              style={{ fontSize: 25, cursor: "pointer" }}
+              onClick={() => setIsCustomizeOpen(true)}
+            />
+          </Tooltip>
         ) : (
-          <MdEditLocationAlt
-            style={{ fontSize: 25, cursor: "pointer" }}
-            onClick={() => setIsCustomizeOpen(false)}
-          />
+          <Tooltip placement="top" title="Customize">
+            <MdEditLocationAlt
+              style={{ fontSize: 25, cursor: "pointer" }}
+              onClick={() => setIsCustomizeOpen(false)}
+            />
+          </Tooltip>
         )}
       </div>
     </div>

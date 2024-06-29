@@ -2,5 +2,4 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 2.5fr 9.5fr;
-  gap: 20px;
 }

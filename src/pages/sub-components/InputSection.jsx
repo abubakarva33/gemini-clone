@@ -4,7 +4,7 @@ import { BiImageAdd } from "react-icons/bi";
 import { HiOutlineMicrophone } from "react-icons/hi2";
 import { LuSendHorizonal } from "react-icons/lu";
 import run from "../../config/gemini";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setRes } from "../../redux/ChatHistorySlice";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -17,6 +17,7 @@ const InputSection = ({ id, setIsLoading }) => {
   const [isRecording, setIsRecording] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const { transcript, listening, browserSupportsSpeechRecognition } = useSpeechRecognition();
+  const { sideBg } = useSelector((state) => state.customizeSec);
 
   useEffect(() => {
     setInputValue(transcript);
@@ -54,7 +55,12 @@ const InputSection = ({ id, setIsLoading }) => {
   };
 
   return (
-    <div className="input-area d-flex align-items-end justify-content-between border w-100">
+    <div
+      className="input-area d-flex align-items-end justify-content-between w-100"
+      style={{
+        backgroundColor: sideBg,
+      }}
+    >
       <TextArea
         type="text"
         placeholder="Ask something to BongoBOT"
@@ -62,7 +68,7 @@ const InputSection = ({ id, setIsLoading }) => {
           minRows: 1,
           maxRows: 6,
         }}
-        style={{ width: "85%" }}
+        style={{ width: "85%", backgroundColor: "transparent" }}
         className="my-2"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}

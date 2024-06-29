@@ -32,11 +32,11 @@ const Homepage = () => {
   return (
     <div
       className="d-flex align-items-center flex-column justify-content-between"
-      style={{ height: "100vh", position: "relative" }}
+      style={{ height: "99vh", position: "relative" }}
     >
       <Header {...{ isCustomizeOpen, setIsCustomizeOpen }} />
-      <div ref={responseContainerRef} style={{ marginBottom: 20 }}>
-        <Response id={id} className="response  overflow-y-auto" />
+      <div ref={responseContainerRef} style={{ marginBottom: 20 }} className="overflow-y-auto">
+        <Response id={id} className="response " />
         <Spin spinning={loading} height={100}></Spin>
       </div>
       <div className="d-flex align-items-center flex-column" style={{ width: "80%" }}>
@@ -51,7 +51,7 @@ const Homepage = () => {
             top: 50,
             right: 0,
             backgroundColor: sideBg,
-            border: `1px solid ${boxBorderColor}`,
+
             borderRadius: boxBorderRound,
             color: textColor,
           }}
