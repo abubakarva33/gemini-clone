@@ -4,7 +4,7 @@ const initialState = {
   sideBg: "#F0F4F9",
   boxBorderColor: "#000000",
   boxBorderRound: 10,
-  mainBg: "#00000080",
+  mainBg: "#FFFFFF",
   slotBorderColor: "#000000",
   slotBorderRound: 10,
   textColor: "#cccccc",
@@ -29,10 +29,10 @@ export const customizeSlice = createSlice({
       Object.assign(state, payload);
     },
     restoreToDefault: (state) => {
-      state.sideBg = "#00000040";
+      state.sideBg = "#F0F4F9";
       state.boxBorderColor = "#000000";
       state.boxBorderRound = 10;
-      state.mainBg = "#00000080";
+      state.mainBg = "#FFFFFF";
       state.slotBorderColor = "#000000";
       state.slotBorderRound = 10;
       state.textColor = "#cccccc";
