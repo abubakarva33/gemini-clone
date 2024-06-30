@@ -9,3 +9,20 @@ export const arraysAreEqual = (arr1, arr2) => {
 
   return true;
 };
+
+export function getDeviceName() {
+  const userAgent = navigator.userAgent;
+  if (/android/i.test(userAgent)) {
+    return "Android Device";
+  } else if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+    return "iOS Device";
+  } else if (/Windows NT/.test(userAgent)) {
+    return "Windows PC";
+  } else if (/Macintosh/.test(userAgent)) {
+    return "Macintosh";
+  } else if (/Linux/.test(userAgent)) {
+    return "Linux Device";
+  }
+
+  return "Unknown Device";
+}
