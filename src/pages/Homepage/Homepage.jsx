@@ -15,7 +15,7 @@ const Homepage = () => {
   const { history } = useSelector((state) => state.chatHistory);
   const [loading, setIsLoading] = useState(false);
   const [isCustomizeOpen, setIsCustomizeOpen] = useState(false);
-  const { sideBg, boxBorderColor, textColor, boxBorderRound } = useSelector(
+  const { sideBg,  textPrimary, } = useSelector(
     (state) => state.customizeSec
   );
 
@@ -51,9 +51,7 @@ const Homepage = () => {
             top: 50,
             right: 0,
             backgroundColor: sideBg,
-
-            borderRadius: boxBorderRound,
-            color: textColor,
+            color: textPrimary,
           }}
         >
           <CustomizeInventory />

@@ -11,10 +11,7 @@ const CustomizeInventory = () => {
     slotBorderColor,
     textColor,
     btnColor,
-    tooltipBg,
-    hudBg,
-    healthColor,
-    armorColor,
+
     hungerColor,
   } = useSelector((state) => state.customizeSec);
 
@@ -36,30 +33,6 @@ const CustomizeInventory = () => {
       color: textColor,
       title: "TEXT COLOR",
       allowAlpha: true,
-    },
-    {
-      type: "tooltipBg",
-      color: tooltipBg,
-      title: "TOOLTIP BACKGROUND",
-      allowAlpha: true,
-    },
-    {
-      type: "hudBg",
-      color: hudBg,
-      title: "HUD BACKGROUND",
-      allowAlpha: true,
-    },
-    {
-      type: "healthColor",
-      color: healthColor,
-      title: "HEALTH COLOR",
-      allowAlpha: false,
-    },
-    {
-      type: "armorColor",
-      color: armorColor,
-      title: "ARMOR COLOR",
-      allowAlpha: false,
     },
     {
       type: "hungerColor",
