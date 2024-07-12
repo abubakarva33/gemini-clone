@@ -23,7 +23,17 @@ const Response = ({ id }) => {
       {id && Object.keys(history)?.length ? (
         <div>
           {history[id]?.map(({ user, res }, ind) => {
-            const output = res.replace(/\* \*\*(.*?)\*\* /g, "<h6>$1</h6>");
+            const response =
+              res
+                // Replace newlines with HTML line breaks
+                .replace(/\n/g, "<br>")
+                // Format ## example as h4 and bold, ensuring no extra <br> tags are added
+                .replace(/## (.*?)(<br>|$)/g, "<h4><strong>$1</strong></h4>")
+                // Format text within **...** as bold and remove **
+                .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+                // Add bullet points for each section ending with :
+                .replace(/(\b[\w\s]+:)\b/g, "<br><ul><li><strong>$1</strong></li>") + "</ul>";
+
             return (
               <div key={ind} className="d-flex align-items-end flex-column">
                 <div
@@ -45,7 +55,7 @@ const Response = ({ id }) => {
                     alt="BongoBOT logo"
                     style={{ height: 30, width: 30, borderRadius: 50 }}
                   />
-                  <div dangerouslySetInnerHTML={{ __html: output }} />
+                  <div dangerouslySetInnerHTML={{ __html: response }} />
                 </div>
               </div>
             );
