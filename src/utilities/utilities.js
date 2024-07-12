@@ -34,3 +34,25 @@ export function addOpacityToColor(color, opacity) {
   let b = parseInt(color.substring(4, 6), 16);
   return `rgba(${r}, ${g}, ${b}, ${opacity})`;
 }
+
+export const getFormattedResponse = (res) => {
+  const response =
+    res
+      // Replace newlines with HTML line breaks
+      .replace(/\n/g, "<br>")
+      // Format ## example as h4 and bold, ensuring no extra <br> tags are added
+      .replace(/## (.*?)(<br>|$)/g, "<h4><strong>$1</strong></h4>")
+      // Format text within **...** as bold and remove **
+      .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+      // Add bullet points for each section ending with :
+      .replace(/(\b[\w\s]+:)\b/g, "<br><ul><li><strong>$1</strong></li>") + "</ul>";
+
+  const output = response.replace(
+    /<br>\* (.*?)(<br>|$)/g,
+    "<br><div style='display: inline-block; margin-left: 20px;'>• $1</div>"
+  );
+  return output.replace(
+    /<\/div>\* (.*?)(<br>|$)/g,
+    "</div><span style='display: inline-block; margin-left: 20px;'>• $1</span>"
+  );
+};
