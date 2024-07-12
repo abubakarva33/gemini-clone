@@ -39,8 +39,13 @@ const Response = ({ id }) => {
                 </div>
 
                 <div className="d-flex justify-content-start align-items-top">
-                  <FaRegUserCircle className="fs-1" />
-                  <div dangerouslySetInnerHTML={{ __html: output }} className="mt-2" />
+                  <img
+                    src="/images/logo.webp"
+                    className="mt-1 me-2"
+                    alt="BongoBOT logo"
+                    style={{ height: 30, width: 30, borderRadius: 50 }}
+                  />
+                  <div dangerouslySetInnerHTML={{ __html: output }} />
                 </div>
               </div>
             );
