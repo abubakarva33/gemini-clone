@@ -1,10 +1,23 @@
 import { useSelector } from "react-redux";
 import "./Response.css";
 import { FaRegUserCircle } from "react-icons/fa";
+import { FaCircleUser } from "react-icons/fa6";
+import { addOpacityToColor } from "../../../utilities/utilities";
 
 const Response = ({ id }) => {
   const { history } = useSelector((state) => state.chatHistory);
   const { mainBg, sideBg, textColor, hungerColor } = useSelector((state) => state.customizeSec);
+
+  const myStyle = {
+    background: `linear-gradient(90deg, ${addOpacityToColor(
+      hungerColor,
+      0.09
+    )} 0%, ${addOpacityToColor(hungerColor, 0.3)} 50%, ${addOpacityToColor(
+      hungerColor,
+      0.09
+    )} 100%)`,
+    borderRadius: 20,
+  };
   return (
     <div>
       {id && Object.keys(history)?.length ? (
@@ -17,14 +30,11 @@ const Response = ({ id }) => {
                   className="d-flex justify-content-end align-items-top"
                   style={{ maxWidth: "50%" }}
                 >
-                  <span
-                    className="px-3 py-1"
-                    style={{ backgroundColor: hungerColor, borderRadius: 20 }}
-                  >
+                  <span className="px-3 py-1" style={myStyle}>
                     {user}
                   </span>
                   <div>
-                    <FaRegUserCircle className="ms-1 mt-1 fs-3" />
+                    <FaCircleUser className="ms-1 mt-1 fs-3" />
                   </div>
                 </div>
 

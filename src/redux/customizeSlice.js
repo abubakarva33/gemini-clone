@@ -15,7 +15,7 @@ const initialState = {
   tooltipBorderColor: "#cccccc",
   healthColor: "#FF0000",
   armorColor: "#0000FF",
-  hungerColor: "#FFA500",
+  hungerColor: "#2d7efd",
   thirstColor: " #1CA9C9",
   cashColor: "#FFFFFF",
   bankColor: "#FFFFFF",
@@ -43,7 +43,7 @@ export const customizeSlice = createSlice({
       state.tooltipBorderColor = "#cccccc";
       state.healthColor = "#FF0000";
       state.armorColor = "#0000FF";
-      state.hungerColor = "#FFA500";
+      state.hungerColor = "#2d7efd";
       state.thirstColor = " #1CA9C9";
       state.cashColor = "#FFFFFF";
       state.bankColor = "#FFFFFF";
