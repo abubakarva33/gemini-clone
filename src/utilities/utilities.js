@@ -36,6 +36,7 @@ export function addOpacityToColor(color, opacity) {
 }
 
 export const getFormattedResponse = (res) => {
+  console.log(res);
   const response =
     res
       // Replace newlines with HTML line breaks

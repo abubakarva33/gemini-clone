@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 import "./Response.css";
-import { FaRegUserCircle } from "react-icons/fa";
 import { FaCircleUser } from "react-icons/fa6";
 import { addOpacityToColor, getFormattedResponse } from "../../../utilities/utilities";
 
@@ -20,13 +19,10 @@ const Response = ({ id }) => {
   };
   return (
     <div>
-      {id && Object.keys(history)?.length ? (
+      {id && Object.keys(history)?.length && (
         <div>
           {history[id]?.map(({ user, res }, ind) => {
             const output = getFormattedResponse(res);
-
-            console.log(output);
-
             return (
               <div key={ind} className="d-flex align-items-end flex-column">
                 <div
@@ -54,8 +50,6 @@ const Response = ({ id }) => {
             );
           })}
         </div>
-      ) : (
-        ""
       )}
     </div>
   );
