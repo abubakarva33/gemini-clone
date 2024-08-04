@@ -60,6 +60,7 @@ const SideBar = () => {
       </div>
       <div className="header-bottom">
         <span>{time}</span>
+        <span className="px-1">|</span>
         <span>{device}</span>
       </div>
     </div>
