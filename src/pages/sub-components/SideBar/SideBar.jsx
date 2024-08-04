@@ -3,6 +3,10 @@ import "./SideBar.css";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { getDeviceName } from "../../../utilities/utilities";
+import { FaRegEdit } from "react-icons/fa";
+import { LuPanelLeftClose, LuPanelRightClose, LuSearchCode } from "react-icons/lu";
+import { FiPlus } from "react-icons/fi";
+import moment from "moment";
 // import { useEffect, useState } from "react";
 
 const SideBar = () => {
@@ -10,16 +14,36 @@ const SideBar = () => {
   const { history } = useSelector((state) => state.chatHistory);
   const { mainBg, sideBg } = useSelector((state) => state.customizeSec);
   const [isHovered, setIsHovered] = useState(null);
+  const [time, setTime] = useState(moment().format("hh:mm A"));
+  const [device, setDevice] = useState("");
+  setInterval(() => {
+    setTime(moment().format("hh:mm A"));
+  }, 1000 * 60);
   useEffect(() => {
-    const deviceName = getDeviceName();
-    console.log(deviceName);
+    setDevice(getDeviceName());
   }, []);
 
   // console.log({ location, status });
   return (
-    <div className="header px-3 w-100" style={{ backgroundColor: sideBg }}>
-      <div>
-        <button onClick={() => navigate("/")}>New Chat</button>
+    <div className="header w-100" style={{ backgroundColor: sideBg }}>
+      <div className="header-items px-3">
+        <div className="header-menu">
+          <span>
+            <LuPanelLeftClose />
+          </span>
+          {/* <span>
+            <LuPanelRightClose />
+          </span> */}
+          <span>
+            <FaRegEdit />
+          </span>
+        </div>
+        <button onClick={() => navigate("/")}>
+          <FiPlus /> New Chat
+        </button>
+        <button onClick={() => navigate("/")}>
+          <LuSearchCode /> Explore Developer
+        </button>
         {Object.values(history).map((item, ind) => (
           <div
             key={ind}
@@ -34,8 +58,9 @@ const SideBar = () => {
           </div>
         ))}
       </div>
-      <div>
-        <h1>Dev</h1>
+      <div className="header-bottom">
+        <span>{time}</span>
+        <span>{device}</span>
       </div>
     </div>
   );

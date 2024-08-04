@@ -4,3 +4,24 @@
   flex-direction: column;
   height: 100%;
 }
+.header-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 24px;
+  margin: 3px 0 10px;
+}
+.header-menu span {
+  padding: 5px;
+}
+.header-items button {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+.header-bottom {
+  background-color: aqua;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
