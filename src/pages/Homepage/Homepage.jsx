@@ -47,7 +47,7 @@ const Homepage = () => {
 
       <div className="hot-questions">
         {hotQuestions?.map((item, ind) => (
-          <div key={ind} style={{ border: `1px solid ${sideBg}` }}>
+          <div key={ind} style={{ border: `1.5px solid #dde3ea` }}>
             {item?.ques}
           </div>
         ))}

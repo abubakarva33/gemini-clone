@@ -45,7 +45,6 @@
 }
 .hot-questions div {
   margin-right: 10px;
-  border: 1px solid #dde3ea;
   border-radius: 10px;
-  padding: 10px 5px;
+  padding: 5px 10px;
 }
