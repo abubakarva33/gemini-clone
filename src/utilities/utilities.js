@@ -36,7 +36,6 @@ export function addOpacityToColor(color, opacity) {
 }
 
 export const getFormattedResponse = (res) => {
-  console.log(res);
   const response =
     res
       // Replace newlines with HTML line breaks
@@ -50,8 +49,15 @@ export const getFormattedResponse = (res) => {
 
   const output = response.replace(
     /<br>\* (.*?)(<br>|$)/g,
-    "<br><div style='display: inline-block; margin-left: 20px;'>• $1</div>"
+    "<div style='display: inline-block; margin-left: 20px;'>• $1</div><br>"
   );
+  console.log(
+    output.replace(
+      /<\/div>\* (.*?)(<br>|$)/g,
+      "</div><span style='display: inline-block; margin-left: 20px;'>• $1</span>"
+    )
+  );
+
   return output.replace(
     /<\/div>\* (.*?)(<br>|$)/g,
     "</div><span style='display: inline-block; margin-left: 20px;'>• $1</span>"

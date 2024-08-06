@@ -44,19 +44,21 @@ const SideBar = () => {
         <button onClick={() => navigate("/")}>
           <LuSearchCode /> Explore Developer
         </button>
-        {Object.values(history).map((item, ind) => (
-          <div
-            key={ind}
-            className="rounded px-2 py-1"
-            style={{ backgroundColor: isHovered === ind ? mainBg : "initial" }}
-            onMouseEnter={() => setIsHovered(ind)}
-            onMouseLeave={() => setIsHovered(null)}
-          >
-            <Link className="me-2 text-capitalize" to={`/${item[0].id}`} key={item[0].id}>
+        <div className="d-flex align-items-center flex-column mt-2">
+          <span className="align-self-start px-2">Recent</span>
+          {Object.values(history).map((item, ind) => (
+            <Link
+              key={ind}
+              className="text-capitalize w-100 rounded px-2 py-1"
+              style={{ backgroundColor: isHovered === ind ? mainBg : "initial", cursor: "pointer" }}
+              to={`/${item[0].id}`}
+              onMouseEnter={() => setIsHovered(ind)}
+              onMouseLeave={() => setIsHovered(null)}
+            >
               {item[0].user?.length > 25 ? `${item[0].user?.slice(0, 25)}...` : item[0].user}
             </Link>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       <div className="header-bottom">
         <span>{time}</span>

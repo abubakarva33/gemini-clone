@@ -3,6 +3,7 @@
   justify-content: space-between;
   flex-direction: column;
   height: 100%;
+  font-size: 18px;
 }
 .header-menu {
   display: flex;
@@ -26,4 +27,62 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media screen and (max-width: 4000px) {
+  .header {
+    font-size: 34px;
+  }
+  .header-menu {
+    font-size: 48px;
+  }
+}
+@media screen and (max-width: 3200px) {
+  .header {
+    font-size: 26px;
+  }
+  .header-menu {
+    font-size: 40px;
+  }
+}
+@media screen and (max-width: 2560px) {
+  .header {
+    font-size: 22px;
+  }
+  .header-menu {
+    font-size: 32px;
+  }
+}
+@media screen and (max-width: 2048px) {
+  .header {
+    font-size: 18px;
+  }
+  .header-menu {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1921px) {
+  .header {
+    font-size: 18px;
+  }
+  .header-menu {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .header {
+    font-size: 14px;
+  }
+  .header-menu {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .header {
+    font-size: 12px;
+  }
+  .header-menu {
+    font-size: 20px;
+  }
 }
