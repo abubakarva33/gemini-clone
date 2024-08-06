@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "regenerator-runtime/runtime";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
+import { addOpacityToColor } from "../../utilities/utilities";
 
 const InputSection = ({ id, setIsLoading }) => {
   const dispatch = useDispatch();
@@ -57,9 +58,7 @@ const InputSection = ({ id, setIsLoading }) => {
   return (
     <div
       className="input-area d-flex align-items-end justify-content-between w-100"
-      style={{
-        backgroundColor: sideBg,
-      }}
+      style={{ backgroundColor: addOpacityToColor(sideBg, 0.25) }}
     >
       <TextArea
         type="text"

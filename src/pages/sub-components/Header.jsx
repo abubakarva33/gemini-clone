@@ -2,6 +2,7 @@ import { Tooltip } from "antd";
 import { LuSearchCode } from "react-icons/lu";
 import { MdEditLocationAlt, MdOutlineEditLocationAlt } from "react-icons/md";
 import { useSelector } from "react-redux";
+import { addOpacityToColor } from "../../utilities/utilities";
 
 const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
   const { sideBg } = useSelector((state) => state.customizeSec);
@@ -14,7 +15,7 @@ const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
       <div className="d-flex align-items-center">
         <div
           className="px-2 py-1 rounded me-2"
-          style={{ backgroundColor: sideBg, cursor: "pointer" }}
+          style={{ backgroundColor: addOpacityToColor(sideBg, 0.25), cursor: "pointer" }}
         >
           <LuSearchCode style={{ fontSize: 20 }} /> <span>Explore Developer</span>
         </div>

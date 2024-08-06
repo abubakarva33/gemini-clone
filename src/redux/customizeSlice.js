@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  sideBg: "rgba(112, 163, 226, 0.16)",
+  sideBg: "#83b3ef1f",
   boxBorderColor: "#000000",
   boxBorderRound: 10,
   mainBg: "#FFFFFF",
@@ -29,7 +29,7 @@ export const customizeSlice = createSlice({
       Object.assign(state, payload);
     },
     restoreToDefault: (state) => {
-      state.sideBg = "rgba(112, 163, 226, 0.16)";
+      state.sideBg = "#83b3ef1f";
       state.boxBorderColor = "#000000";
       state.boxBorderRound = 10;
       state.mainBg = "#FFFFFF";

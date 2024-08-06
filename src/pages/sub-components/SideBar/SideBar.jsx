@@ -2,7 +2,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./SideBar.css";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { getDeviceName } from "../../../utilities/utilities";
+import { addOpacityToColor, getDeviceName } from "../../../utilities/utilities";
 import { FaRegEdit } from "react-icons/fa";
 import { LuPanelLeftClose, LuPanelRightClose, LuSearchCode } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
@@ -38,10 +38,16 @@ const SideBar = () => {
             <FaRegEdit />
           </span>
         </div>
-        <button onClick={() => navigate("/")}>
+        <button
+          onClick={() => navigate("/")}
+          style={{ backgroundColor: addOpacityToColor(sideBg, 0.25) }}
+        >
           <FiPlus /> New Chat
         </button>
-        <button onClick={() => navigate("/")}>
+        <button
+          onClick={() => navigate("/")}
+          style={{ backgroundColor: addOpacityToColor(sideBg, 0.25) }}
+        >
           <LuSearchCode /> Explore Developer
         </button>
         <div className="d-flex align-items-center flex-column mt-2">
@@ -60,7 +66,7 @@ const SideBar = () => {
           ))}
         </div>
       </div>
-      <div className="header-bottom">
+      <div className="header-bottom" style={{ backgroundColor: addOpacityToColor(sideBg, 0.7) }}>
         <span>{time}</span>
         <span className="px-1">|</span>
         <span>{device}</span>
