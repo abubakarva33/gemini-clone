@@ -1,16 +1,18 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./SideBar.css";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { addOpacityToColor, getDeviceName } from "../../../utilities/utilities";
 import { FaRegEdit } from "react-icons/fa";
 import { LuPanelLeftClose, LuPanelRightClose, LuSearchCode } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
 import moment from "moment";
+import { setDevMode } from "../../../redux/exploreDevSlice";
 // import { useEffect, useState } from "react";
 
 const SideBar = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { history } = useSelector((state) => state.chatHistory);
   const { mainBg, sideBg } = useSelector((state) => state.customizeSec);
   const [isHovered, setIsHovered] = useState(null);
@@ -45,8 +47,11 @@ const SideBar = () => {
           <FiPlus /> New Chat
         </button>
         <button
-          onClick={() => navigate("/")}
           style={{ backgroundColor: addOpacityToColor(sideBg, 0.25) }}
+          onClick={() => {
+            dispatch(setDevMode(true));
+            navigate("/");
+          }}
         >
           <LuSearchCode /> Explore Developer
         </button>
