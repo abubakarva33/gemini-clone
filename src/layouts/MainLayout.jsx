@@ -16,7 +16,7 @@ const MainLayout = () => {
         <SideBar />
       </div>
       <div
-        className="px-4 pt-1"
+        className="pt-1"
         style={{
           backgroundColor: mainBg,
         }}
