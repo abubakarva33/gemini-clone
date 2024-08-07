@@ -1,4 +1,4 @@
-import { Form, Tooltip } from "antd";
+import { Tooltip } from "antd";
 import TextArea from "antd/es/input/TextArea";
 import { BiImageAdd } from "react-icons/bi";
 import { HiOutlineMicrophone } from "react-icons/hi2";
@@ -26,10 +26,6 @@ const InputSection = ({ id, setIsLoading }) => {
   useEffect(() => {
     setInputValue(transcript);
   }, [transcript]);
-
-  // useEffect(() => {
-
-  // }, [isDevMode]);
 
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;

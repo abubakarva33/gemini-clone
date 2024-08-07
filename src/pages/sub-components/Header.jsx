@@ -1,5 +1,5 @@
 import { Tooltip } from "antd";
-import { LuSearchCode } from "react-icons/lu";
+import { LuPanelRightClose, LuSearchCode } from "react-icons/lu";
 import { MdEditLocationAlt, MdOutlineEditLocationAlt } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { addOpacityToColor } from "../../utilities/utilities";
@@ -30,6 +30,11 @@ const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
           >
             <LuSearchCode style={{ fontSize: 20 }} /> <span>Explore Developer</span>
           </div>
+          {window.innerWidth < 850 && (
+            <span>
+              <LuPanelRightClose className="sideMenu" style={{ fontSize: 25, cursor: "pointer" }} />
+            </span>
+          )}
 
           {!isCustomizeOpen ? (
             <Tooltip placement="top" title="Customize">

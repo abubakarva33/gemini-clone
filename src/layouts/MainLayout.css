@@ -2,8 +2,16 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 2.2fr 9.8fr;
+  position: relative;
 }
-
+.sideBar {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 9999;
+  background-color: aliceblue;
+  height: 100%;
+}
 @media screen and (max-width: 1100px) {
   .mainBody {
     grid-template-columns: 2.6fr 9.4fr;
