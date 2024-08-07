@@ -4,11 +4,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { addOpacityToColor, getDeviceName } from "../../../utilities/utilities";
 import { FaRegEdit } from "react-icons/fa";
-import { LuPanelLeftClose, LuPanelRightClose, LuSearchCode } from "react-icons/lu";
+import { LuPanelLeftClose, LuSearchCode } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
 import moment from "moment";
 import { setDesktopSideBar, setDevMode, setSidebarOpen } from "../../../redux/exploreDevSlice";
-// import { useEffect, useState } from "react";
 
 const SideBar = () => {
   const navigate = useNavigate();
@@ -25,12 +24,12 @@ const SideBar = () => {
     setDevice(getDeviceName());
   }, []);
 
-  // console.log({ location, status });
   return (
     <div className="header w-100" style={{ backgroundColor: sideBg }}>
       <div className="header-items px-3">
         <div className="header-menu">
           <span
+            style={{ cursor: "pointer" }}
             onClick={() => {
               dispatch(setSidebarOpen(false));
               dispatch(setDesktopSideBar(false));
@@ -38,10 +37,7 @@ const SideBar = () => {
           >
             <LuPanelLeftClose />
           </span>
-          {/* <span>
-            <LuPanelRightClose />
-          </span> */}
-          <span>
+          <span style={{ cursor: "pointer" }}>
             <FaRegEdit />
           </span>
         </div>

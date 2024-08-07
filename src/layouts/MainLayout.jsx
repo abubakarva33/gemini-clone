@@ -10,18 +10,7 @@ const MainLayout = () => {
   const { isSidebarOpen, desktopSideBar } = useSelector((state) => state.devMode);
   // const [sidebarHide, setSidebarHide] = useState(false);
   return (
-    <div className={`${!desktopSideBar ? "toggleMainBody" : ""} mainBody`}>
-      {/* <div
-        className={`${
-          !desktopSideBar ? "sideBarOpen" : ""
-        } sideBar flex align-items-center overflow-auto`}
-        // style={{
-        //   backgroundColor: sideBg,
-        // }}
-      >
-        <SideBar />
-      </div> */}
-
+    <div className={`mainBody ${!desktopSideBar ? "toggleMainBody" : ""}`}>
       <div
         className={` ${
           isSidebarOpen ? "sideBarOpen" : ""
