@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: 2.2fr 9.8fr;
   position: relative;
+  overflow: hidden;
 }
 .toggleMainBody {
   grid-template-columns: 1fr !important;
@@ -44,6 +45,9 @@
     transition: all 0.5s ease-in-out;
   }
   .customizeBtn {
+    display: none;
+  }
+  .toggleBtn {
     display: none;
   }
 }
