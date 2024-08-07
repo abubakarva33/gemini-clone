@@ -31,7 +31,7 @@ const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
             <LuSearchCode style={{ fontSize: 20 }} /> <span>Explore Developer</span>
           </div>
 
-          <span onClick={() => dispatch(setSidebarOpen(true))}>
+          <span className="sideMenuToggler" onClick={() => dispatch(setSidebarOpen(true))}>
             <LuPanelRightClose className="sideMenu" style={{ fontSize: 25, cursor: "pointer" }} />
           </span>
 
