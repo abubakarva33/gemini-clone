@@ -11,18 +11,25 @@ import { useEffect, useState } from "react";
 import "regenerator-runtime/runtime";
 import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognition";
 import { addOpacityToColor } from "../../utilities/utilities";
+import { devDetails } from "../../utilities/devInfo";
 
 const InputSection = ({ id, setIsLoading }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isRecording, setIsRecording] = useState(false);
   const [inputValue, setInputValue] = useState("");
+  const [firstReq, setFirstReq] = useState(true);
   const { transcript, listening, browserSupportsSpeechRecognition } = useSpeechRecognition();
   const { sideBg } = useSelector((state) => state.customizeSec);
+  const { isDevMode } = useSelector((state) => state.devMode);
 
   useEffect(() => {
     setInputValue(transcript);
   }, [transcript]);
+
+  // useEffect(() => {
+
+  // }, [isDevMode]);
 
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
@@ -41,12 +48,15 @@ const InputSection = ({ id, setIsLoading }) => {
   const chatResponseHandler = async () => {
     setIsLoading(true);
     try {
-      const data = await run(inputValue);
+      const data =
+        isDevMode && firstReq ? await run(devDetails + inputValue) : await run(inputValue);
       const newId = id || new Date().getTime();
-      console.log("try");
       dispatch(setRes({ user: inputValue, res: data, id: newId }));
       if (!id) {
         navigate("/" + newId);
+        setFirstReq(true);
+      } else {
+        setFirstReq(false);
       }
     } catch (error) {
       console.log(error);

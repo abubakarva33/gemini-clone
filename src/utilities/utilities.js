@@ -51,12 +51,12 @@ export const getFormattedResponse = (res) => {
     /<br>\* (.*?)(<br>|$)/g,
     "<div style='display: inline-block; margin-left: 20px;'>• $1</div><br>"
   );
-  console.log(
-    output.replace(
-      /<\/div>\* (.*?)(<br>|$)/g,
-      "</div><span style='display: inline-block; margin-left: 20px;'>• $1</span>"
-    )
-  );
+  // console.log(
+  //   output.replace(
+  //     /<\/div>\* (.*?)(<br>|$)/g,
+  //     "</div><span style='display: inline-block; margin-left: 20px;'>• $1</span>"
+  //   )
+  // );
 
   return output.replace(
     /<\/div>\* (.*?)(<br>|$)/g,
