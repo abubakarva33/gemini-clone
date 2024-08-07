@@ -7,7 +7,7 @@ import { FaRegEdit } from "react-icons/fa";
 import { LuPanelLeftClose, LuPanelRightClose, LuSearchCode } from "react-icons/lu";
 import { FiPlus } from "react-icons/fi";
 import moment from "moment";
-import { setDevMode } from "../../../redux/exploreDevSlice";
+import { setDesktopSideBar, setDevMode, setSidebarOpen } from "../../../redux/exploreDevSlice";
 // import { useEffect, useState } from "react";
 
 const SideBar = () => {
@@ -30,7 +30,12 @@ const SideBar = () => {
     <div className="header w-100" style={{ backgroundColor: sideBg }}>
       <div className="header-items px-3">
         <div className="header-menu">
-          <span>
+          <span
+            onClick={() => {
+              dispatch(setSidebarOpen(false));
+              dispatch(setDesktopSideBar(false));
+            }}
+          >
             <LuPanelLeftClose />
           </span>
           {/* <span>

@@ -4,7 +4,7 @@ import { MdEditLocationAlt, MdOutlineEditLocationAlt } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import { addOpacityToColor } from "../../utilities/utilities";
 import ExploreDev from "./ExploreDev";
-import { setDevMode } from "../../redux/exploreDevSlice";
+import { setDevMode, setSidebarOpen } from "../../redux/exploreDevSlice";
 import { useNavigate } from "react-router-dom";
 
 const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
@@ -30,11 +30,10 @@ const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
           >
             <LuSearchCode style={{ fontSize: 20 }} /> <span>Explore Developer</span>
           </div>
-          {window.innerWidth < 850 && (
-            <span>
-              <LuPanelRightClose className="sideMenu" style={{ fontSize: 25, cursor: "pointer" }} />
-            </span>
-          )}
+
+          <span onClick={() => dispatch(setSidebarOpen(true))}>
+            <LuPanelRightClose className="sideMenu" style={{ fontSize: 25, cursor: "pointer" }} />
+          </span>
 
           {!isCustomizeOpen ? (
             <Tooltip placement="top" title="Customize">

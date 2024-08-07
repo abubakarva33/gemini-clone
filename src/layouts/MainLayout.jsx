@@ -7,12 +7,26 @@ import { LuPanelRightClose } from "react-icons/lu";
 
 const MainLayout = () => {
   const { sideBg, mainBg } = useSelector((state) => state.customizeSec);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { isSidebarOpen, desktopSideBar } = useSelector((state) => state.devMode);
+  // const [sidebarHide, setSidebarHide] = useState(false);
   return (
     <div className="mainBody">
+      {!desktopSideBar && (
+        <div
+          className={`${
+            isSidebarOpen ? "sideBarOpen" : ""
+          } sideBar flex align-items-center overflow-auto`}
+          // style={{
+          //   backgroundColor: sideBg,
+          // }}
+        >
+          <SideBar />
+        </div>
+      )}
+
       <div
-        className={`${
-          window.innerWidth < 850 && sidebarOpen ? "sideBar" : ""
+        className={`${window.innerWidth < 850 ? "sideBar" : ""} ${
+          isSidebarOpen ? "sideBarOpen" : ""
         } flex align-items-center overflow-auto`}
         // style={{
         //   backgroundColor: sideBg,
