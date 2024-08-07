@@ -56,7 +56,7 @@ const SideBar = () => {
             <Link
               key={ind}
               className="text-capitalize w-100 rounded px-2 py-1"
-              style={{ backgroundColor: isHovered === ind ? mainBg : "initial", cursor: "pointer" }}
+              style={{ backgroundColor: isHovered === ind ? mainBg : "", cursor: "pointer" }}
               to={`/${item[0].id}`}
               onMouseEnter={() => setIsHovered(ind)}
               onMouseLeave={() => setIsHovered(null)}

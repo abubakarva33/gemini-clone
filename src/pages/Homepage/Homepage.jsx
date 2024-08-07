@@ -8,14 +8,7 @@ import InputSection from "../sub-components/InputSection";
 import Footer from "../sub-components/Footer";
 import Header from "../sub-components/Header";
 import CustomizeInventory from "../sub-components/CustomizeInventory/CustomizeInventory";
-import { addOpacityToColor } from "../../utilities/utilities";
-
-const hotQuestions = [
-  { ques: "Describe about abubakar siddik" },
-  { ques: "who abubakar siddik" },
-  { ques: "abubakar siddik works history" },
-  { ques: "abubakar siddik personal backgraound" },
-];
+import HotQuestions from "../sub-components/HotQuestions";
 
 const Homepage = () => {
   const { id } = useParams();
@@ -45,14 +38,7 @@ const Homepage = () => {
         <Response id={id} className="response " />
         <Spin spinning={loading} height={100}></Spin>
       </div>
-
-      <div className="hot-questions">
-        {hotQuestions?.map((item, ind) => (
-          <div key={ind} style={{ border: `1.5px solid ${addOpacityToColor(sideBg, 0.5)}` }}>
-            {item?.ques}
-          </div>
-        ))}
-      </div>
+      <HotQuestions id={id} />
       <div className="d-flex align-items-center flex-column" style={{ width: "80%" }}>
         <InputSection {...{ id, setIsLoading }} />
         <Footer />
