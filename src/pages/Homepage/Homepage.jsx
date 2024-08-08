@@ -45,7 +45,7 @@ const Homepage = () => {
         </div>
       )}
 
-      <HotQuestions id={id} />
+      <HotQuestions {...{ id, setIsLoading }} />
       <div className="inputContainer d-flex align-items-center flex-column px-4 ">
         <InputSection {...{ id, setIsLoading }} />
         <Footer />
