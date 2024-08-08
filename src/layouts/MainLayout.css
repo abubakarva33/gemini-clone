@@ -1,5 +1,5 @@
 .mainBody {
-  height: 100vh;
+  height: 100dvh;
   display: grid;
   grid-template-columns: 2.2fr 9.8fr;
   position: relative;

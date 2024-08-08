@@ -31,7 +31,7 @@ const Homepage = () => {
   return (
     <div
       className="d-flex align-items-center flex-column justify-content-between"
-      style={{ height: "99vh", position: "relative" }}
+      style={{ height: "99dvh", position: "relative" }}
     >
       <Header {...{ isCustomizeOpen, setIsCustomizeOpen }} />
       {id && (

@@ -58,7 +58,7 @@ const CustomizeInventory = () => {
 
       <div
         style={{
-          height: "calc(100vh - 250px)",
+          height: "calc(100dvh - 250px)",
           overflowX: "hidden",
           overflowY: "auto",
           width: "100%",
