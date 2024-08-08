@@ -69,6 +69,7 @@
   width: 80%;
 }
 
+
 @media screen and (max-width: 650px) {
   .hot-questions {
     width: 90%;

@@ -18,12 +18,12 @@ const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
         className="d-flex align-items-center justify-content-between w-100 my-2 px-4"
         style={{ position: "relative", color: "#7d7d7d" }}
       >
-        <span style={{ fontSize: 22, fontWeight: 600, marginLeft: !desktopSideBar && 40 }}>
+        <span style={{ fontSize: 22, fontWeight: 600, }} className={`${!desktopSideBar ? "toggleLogo": ""}`}>
           BongoBOT
         </span>
-        <div className="d-flex align-items-center">
+        <div className=" d-flex align-items-center">
           <div
-            className="px-2 py-1 rounded me-2"
+            className="exploreToggler px-2 py-1 rounded me-2"
             style={{ backgroundColor: addOpacityToColor(sideBg, 0.25), cursor: "pointer" }}
             onClick={() => {
               dispatch(setDevMode(true));
@@ -32,6 +32,16 @@ const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
           >
             <LuSearchCode style={{ fontSize: 20 }} /> <span>Explore Developer</span>
           </div>
+
+          <span
+            className="sideMenuToggler"
+            onClick={() => {
+              dispatch(setDevMode(true));
+              navigate("/");
+            }}
+          >
+            <LuSearchCode style={{ fontSize: 25, cursor: "pointer" }} />
+          </span>
 
           <span className="sideMenuToggler" onClick={() => dispatch(setSidebarOpen(true))}>
             <LuPanelRightClose className="sideMenu" style={{ fontSize: 25, cursor: "pointer" }} />

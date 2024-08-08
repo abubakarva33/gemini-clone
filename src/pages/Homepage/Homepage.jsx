@@ -34,13 +34,19 @@ const Homepage = () => {
       style={{ height: "99vh", position: "relative" }}
     >
       <Header {...{ isCustomizeOpen, setIsCustomizeOpen }} />
-      <div ref={responseContainerRef} style={{ marginBottom: 20 }} className="overflow-y-auto px-4">
-        <Response id={id} className="response " />
-        <Spin spinning={loading} height={100}></Spin>
-      </div>
+      {id && (
+        <div
+          ref={responseContainerRef}
+          style={{ marginBottom: 20 }}
+          className="overflow-y-auto px-4"
+        >
+          <Response id={id} className="response " />
+          <Spin spinning={loading} height={100}></Spin>
+        </div>
+      )}
 
       <HotQuestions id={id} />
-      <div className="inputContainer d-flex align-items-center flex-column px-4 " >
+      <div className="inputContainer d-flex align-items-center flex-column px-4 ">
         <InputSection {...{ id, setIsLoading }} />
         <Footer />
       </div>

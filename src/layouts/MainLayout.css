@@ -17,6 +17,10 @@
   top: 50%;
   transform: translate(0%, -50%);
 }
+.toggleLogo {
+  margin-left: 40px;
+}
+
 @media screen and (max-width: 1100px) {
   .mainBody {
     grid-template-columns: 2.6fr 9.4fr;
@@ -49,5 +53,11 @@
   }
   .toggleBtn {
     display: none;
+  }
+  .exploreToggler {
+    display: none;
+  }
+  .toggleLogo {
+    margin-left: 0;
   }
 }
