@@ -29,6 +29,9 @@
   border-radius: 50px;
   padding: 0 20px;
 }
+.inputBtnSection {
+  width: 20%;
+}
 .inputBtnSection button,
 .inputBtnSection span {
   font-size: 22px;
@@ -55,4 +58,27 @@
   justify-content: center;
   width: 100%;
   padding: 5px;
+}
+.inputContainer {
+  width: 80%;
+}
+
+@media screen and (max-width: 650px) {
+  .hot-questions {
+    width: 90%;
+  }
+  .inputContainer {
+    width: 100%;
+  }
+  .inputBtnSection {
+    width: 25%;
+  }
+}
+@media screen and (max-width: 450px) {
+  .hot-questions {
+    width: 100%;
+  }
+  .inputBtnSection {
+    width: 30%;
+  }
 }

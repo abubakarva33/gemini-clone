@@ -40,7 +40,7 @@ const Homepage = () => {
       </div>
 
       <HotQuestions id={id} />
-      <div className="d-flex align-items-center flex-column px-4 " style={{ width: "80%" }}>
+      <div className="inputContainer d-flex align-items-center flex-column px-4 " >
         <InputSection {...{ id, setIsLoading }} />
         <Footer />
       </div>
