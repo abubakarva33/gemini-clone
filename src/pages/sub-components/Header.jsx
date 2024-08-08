@@ -41,11 +41,7 @@ const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
             <LuSearchCode style={{ cursor: "pointer" }} />
           </span>
 
-          <span className="sideMenuToggler" onClick={() => dispatch(setSidebarOpen(true))}>
-            <LuPanelRightClose className="sideMenu" style={{ cursor: "pointer" }} />
-          </span>
-
-          <div className="customizeBtn">
+          <div className="">
             {!isCustomizeOpen ? (
               <Tooltip placement="top" title="Customize">
                 <MdOutlineEditLocationAlt
@@ -62,6 +58,9 @@ const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
               </Tooltip>
             )}
           </div>
+          <span className="sideMenuToggler" onClick={() => dispatch(setSidebarOpen(true))}>
+            <LuPanelRightClose className="sideMenu" style={{ cursor: "pointer" }} />
+          </span>
         </div>
         {!desktopSideBar && (
           <span
