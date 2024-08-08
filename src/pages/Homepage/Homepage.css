@@ -68,6 +68,109 @@
 .inputContainer {
   width: 80%;
 }
+.logo {
+  font-size: 22px;
+  font-weight: 600;
+}
+.exploreBtn {
+  font-size: 18px;
+}
+@media screen and (max-width: 4000px) {
+  .hot-questions div {
+    font-size: 35px;
+  }
+  .logo {
+    font-size: 50px;
+  }
+  .ant-input:placeholder-shown,
+  .exploreBtn {
+    font-size: 40px;
+  }
+  .inputBtnSection button,
+  .inputBtnSection span {
+    font-size: 50px;
+  }
+}
+@media screen and (max-width: 3200px) {
+  .hot-questions div {
+    font-size: 30px;
+  }
+  .logo {
+    font-size: 40px;
+  }
+  .ant-input:placeholder-shown,
+  .exploreBtn {
+    font-size: 35px;
+  }
+  .inputBtnSection button,
+  .inputBtnSection span {
+    font-size: 45px;
+  }
+}
+@media screen and (max-width: 2560px) {
+  .hot-questions div {
+    font-size: 25px;
+  }
+  .logo {
+    font-size: 35px;
+  }
+  .ant-input:placeholder-shown,
+  .exploreBtn {
+    font-size: 30px;
+  }
+  .inputBtnSection button,
+  .inputBtnSection span {
+    font-size: 35px;
+  }
+}
+@media screen and (max-width: 2048px) {
+  .hot-questions div {
+    font-size: 22px;
+  }
+  .logo {
+    font-size: 30px;
+  }
+  .ant-input:placeholder-shown,
+  .exploreBtn {
+    font-size: 25px;
+  }
+  .inputBtnSection button,
+  .inputBtnSection span {
+    font-size: 30px;
+  }
+}
+@media screen and (max-width: 1921px) {
+  .hot-questions div {
+    font-size: 18px;
+  }
+  .logo {
+    font-size: 28px;
+  }
+  .ant-input:placeholder-shown,
+  .exploreBtn {
+    font-size: 22px;
+  }
+  .inputBtnSection button,
+  .inputBtnSection span {
+    font-size: 25px;
+  }
+}
+@media screen and (max-width: 1600px) {
+  .hot-questions div {
+    font-size: 14px;
+  }
+  .logo {
+    font-size: 25px;
+  }
+  .ant-input:placeholder-shown,
+  .exploreBtn {
+    font-size: 18px;
+  }
+  .inputBtnSection button,
+  .inputBtnSection span {
+    font-size: 22px;
+  }
+}
 
 @media screen and (max-width: 650px) {
   .hot-questions {
@@ -93,6 +196,9 @@
   .inputBtnSection button,
   .inputBtnSection span {
     font-size: 20px;
+  }
+  .ant-input:placeholder-shown {
+    font-size: 14px;
   }
 }
 @media screen and (max-width: 350px) {

@@ -18,22 +18,17 @@ const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
         className="d-flex align-items-center justify-content-between w-100 my-2 px-4"
         style={{ position: "relative", color: textColor }}
       >
-        <span
-          style={{ fontSize: 22, fontWeight: 600 }}
-          className={`${!desktopSideBar ? "toggleLogo" : ""}`}
-        >
-          BongoBOT
-        </span>
-        <div className=" d-flex align-items-center">
+        <span className={`logo ${!desktopSideBar ? "toggleLogo" : ""}`}>BongoBOT</span>
+        <div className=" header-menu">
           <div
-            className="exploreToggler px-2 py-1 rounded me-2"
+            className="exploreToggler px-2 rounded me-2"
             style={{ backgroundColor: addOpacityToColor(sideBg, 0.25), cursor: "pointer" }}
             onClick={() => {
               dispatch(setDevMode(true));
               navigate("/");
             }}
           >
-            <LuSearchCode style={{ fontSize: 20 }} /> <span>Explore Developer</span>
+            <LuSearchCode /> <span className="exploreBtn">Explore Developer</span>
           </div>
 
           <span
@@ -43,25 +38,25 @@ const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
               navigate("/");
             }}
           >
-            <LuSearchCode style={{ fontSize: 25, cursor: "pointer" }} />
+            <LuSearchCode style={{ cursor: "pointer" }} />
           </span>
 
           <span className="sideMenuToggler" onClick={() => dispatch(setSidebarOpen(true))}>
-            <LuPanelRightClose className="sideMenu" style={{ fontSize: 25, cursor: "pointer" }} />
+            <LuPanelRightClose className="sideMenu" style={{ cursor: "pointer" }} />
           </span>
 
           <div className="customizeBtn">
             {!isCustomizeOpen ? (
               <Tooltip placement="top" title="Customize">
                 <MdOutlineEditLocationAlt
-                  style={{ fontSize: 25, cursor: "pointer" }}
+                  style={{ cursor: "pointer" }}
                   onClick={() => setIsCustomizeOpen(true)}
                 />
               </Tooltip>
             ) : (
               <Tooltip placement="top" title="Customize">
                 <MdEditLocationAlt
-                  style={{ fontSize: 25, cursor: "pointer" }}
+                  style={{ cursor: "pointer" }}
                   onClick={() => setIsCustomizeOpen(false)}
                 />
               </Tooltip>

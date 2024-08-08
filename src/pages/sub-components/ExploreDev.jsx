@@ -9,10 +9,13 @@ const ExploreDev = () => {
   const navigate = useNavigate();
   const { sideBg, textPrimary } = useSelector((state) => state.customizeSec);
   return (
-    <div className="exploreDev mt-1" style={{ backgroundColor: addOpacityToColor(sideBg, 0.8) }}>
+    <div
+      className="exploreBtn exploreDev mt-1"
+      style={{ backgroundColor: addOpacityToColor(sideBg, 0.8) }}
+    >
       <span>Limited Access: Developer Information Only Provided</span>
       <MdClose
-        className="ms-2 fs-5"
+        className="ms-2"
         style={{ cursor: "pointer" }}
         onClick={() => {
           dispatch(setDevMode(false));

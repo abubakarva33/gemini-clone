@@ -20,8 +20,6 @@ const HotQuestions = ({ id, setIsLoading }) => {
   const [isHovered, setIsHovered] = useState(null);
   const chatResponseHandler = async (inputValue) => {
     setIsLoading(true);
-    console.log(devDetails + inputValue);
-
     try {
       const data = await run(devDetails + inputValue);
       const newId = id || new Date().getTime();
