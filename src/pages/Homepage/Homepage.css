@@ -75,6 +75,11 @@
 .exploreBtn {
   font-size: 18px;
 }
+.footer {
+  font-size: 12px;
+  margin: 8px 0 5px;
+  text-align: center;
+}
 @media screen and (max-width: 4000px) {
   .hot-questions div {
     font-size: 35px;
@@ -89,6 +94,9 @@
   .inputBtnSection button,
   .inputBtnSection span {
     font-size: 50px;
+  }
+  .footer {
+    font-size: 22px;
   }
 }
 @media screen and (max-width: 3200px) {
@@ -106,6 +114,9 @@
   .inputBtnSection span {
     font-size: 45px;
   }
+  .footer {
+    font-size: 20px;
+  }
 }
 @media screen and (max-width: 2560px) {
   .hot-questions div {
@@ -121,6 +132,9 @@
   .inputBtnSection button,
   .inputBtnSection span {
     font-size: 35px;
+  }
+  .footer {
+    font-size: 18px;
   }
 }
 @media screen and (max-width: 2048px) {
@@ -138,6 +152,9 @@
   .inputBtnSection span {
     font-size: 30px;
   }
+  .footer {
+    font-size: 16px;
+  }
 }
 @media screen and (max-width: 1921px) {
   .hot-questions div {
@@ -153,6 +170,9 @@
   .inputBtnSection button,
   .inputBtnSection span {
     font-size: 25px;
+  }
+  .footer {
+    font-size: 14px;
   }
 }
 @media screen and (max-width: 1600px) {
@@ -170,6 +190,9 @@
   .inputBtnSection span {
     font-size: 22px;
   }
+  .footer {
+    font-size: 12px;
+  }
 }
 
 @media screen and (max-width: 650px) {
@@ -183,6 +206,9 @@
     margin-right: 5px;
     padding: 5px;
     font-size: 12px;
+  }
+  .footer {
+    font-size: 10px;
   }
 }
 
@@ -200,9 +226,15 @@
   .ant-input:placeholder-shown {
     font-size: 14px;
   }
+  .footer {
+    font-size: 9px;
+  }
 }
 @media screen and (max-width: 350px) {
   .ant-input:placeholder-shown {
     font-size: 12px;
+  }
+  .footer {
+    font-size: 8px;
   }
 }
