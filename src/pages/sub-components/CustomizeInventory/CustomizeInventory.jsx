@@ -5,15 +5,7 @@ import { restoreToDefault } from "../../../redux/customizeSlice";
 
 const CustomizeInventory = () => {
   const dispatch = useDispatch();
-  const {
-    mainBg,
-    sideBg,
-    slotBorderColor,
-    textColor,
-    btnColor,
-
-    hungerColor,
-  } = useSelector((state) => state.customizeSec);
+  const { mainBg, sideBg, textColor, hungerColor } = useSelector((state) => state.customizeSec);
 
   const customizeData1 = [
     {
@@ -43,12 +35,11 @@ const CustomizeInventory = () => {
   ];
 
   return (
-    <div className="px-2 pt-2">
+    <div className="px-2 pt-2" style={{ backgroundColor: mainBg }}>
       <div
         className="d-flex align-items-center justify-content-center rounded mb-2"
         style={{
-          border: `1px solid ${slotBorderColor}`,
-          backgroundColor: btnColor,
+          border: `1px solid `,
           fontSize: 16,
           height: 30,
         }}
@@ -78,8 +69,7 @@ const CustomizeInventory = () => {
       <div
         className="d-flex align-items-center justify-content-center rounded mb-2 mt-2"
         style={{
-          border: `1px solid ${slotBorderColor}`,
-          backgroundColor: btnColor,
+          border: `1px solid `,
           fontSize: 16,
           height: 30,
           cursor: "pointer",

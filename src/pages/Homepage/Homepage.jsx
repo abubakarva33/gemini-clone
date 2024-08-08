@@ -16,7 +16,7 @@ const Homepage = () => {
   const { history } = useSelector((state) => state.chatHistory);
   const [loading, setIsLoading] = useState(false);
   const [isCustomizeOpen, setIsCustomizeOpen] = useState(false);
-  const { sideBg, textPrimary } = useSelector((state) => state.customizeSec);
+  const { sideBg, textColor } = useSelector((state) => state.customizeSec);
 
   const scrollToBottom = () => {
     if (responseContainerRef.current) {
@@ -31,7 +31,7 @@ const Homepage = () => {
   return (
     <div
       className="d-flex align-items-center flex-column justify-content-between"
-      style={{ height: "99dvh", position: "relative" }}
+      style={{ height: "99dvh", position: "relative", color: textColor }}
     >
       <Header {...{ isCustomizeOpen, setIsCustomizeOpen }} />
       {id && (
@@ -58,7 +58,7 @@ const Homepage = () => {
             top: 50,
             right: 0,
             backgroundColor: sideBg,
-            color: textPrimary,
+            color: textColor,
           }}
         >
           <CustomizeInventory />

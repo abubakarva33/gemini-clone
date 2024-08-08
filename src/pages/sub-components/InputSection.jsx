@@ -20,7 +20,7 @@ const InputSection = ({ id, setIsLoading }) => {
   const [inputValue, setInputValue] = useState("");
   const [firstReq, setFirstReq] = useState(true);
   const { transcript, listening, browserSupportsSpeechRecognition } = useSpeechRecognition();
-  const { sideBg } = useSelector((state) => state.customizeSec);
+  const { sideBg, textColor } = useSelector((state) => state.customizeSec);
   const { isDevMode } = useSelector((state) => state.devMode);
 
   useEffect(() => {
@@ -89,7 +89,7 @@ const InputSection = ({ id, setIsLoading }) => {
             <HiOutlineMicrophone onClick={voiceHandler} />
           </Tooltip>
         </span>
-        <button onClick={chatResponseHandler}>
+        <button onClick={chatResponseHandler} style={{ color: textColor }}>
           <LuSendHorizonal />
         </button>
       </div>

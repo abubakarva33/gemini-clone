@@ -10,15 +10,18 @@ import { useNavigate } from "react-router-dom";
 const Header = ({ isCustomizeOpen, setIsCustomizeOpen }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { sideBg } = useSelector((state) => state.customizeSec);
+  const { sideBg, textColor } = useSelector((state) => state.customizeSec);
   const { isDevMode, desktopSideBar } = useSelector((state) => state.devMode);
   return (
     <div className="d-flex flex-column w-100">
       <div
         className="d-flex align-items-center justify-content-between w-100 my-2 px-4"
-        style={{ position: "relative", color: "#7d7d7d" }}
+        style={{ position: "relative", color: textColor }}
       >
-        <span style={{ fontSize: 22, fontWeight: 600, }} className={`${!desktopSideBar ? "toggleLogo": ""}`}>
+        <span
+          style={{ fontSize: 22, fontWeight: 600 }}
+          className={`${!desktopSideBar ? "toggleLogo" : ""}`}
+        >
           BongoBOT
         </span>
         <div className=" d-flex align-items-center">
