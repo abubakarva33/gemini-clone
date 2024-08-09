@@ -38,7 +38,7 @@ const Homepage = () => {
         <div
           ref={responseContainerRef}
           style={{ marginBottom: 20 }}
-          className="overflow-y-auto px-4"
+          className="overflow-y-auto px-4 w-100"
         >
           <Response id={id} className="response " />
           <Spin spinning={loading} height={100}></Spin>

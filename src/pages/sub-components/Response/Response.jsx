@@ -24,13 +24,14 @@ const Response = ({ id }) => {
           {history[id]?.map(({ user, res }, ind) => {
             const output = getFormattedResponse(res);
             return (
-              <div key={ind} className="exploreBtn d-flex align-items-end flex-column">
-                <div
-                  className="d-flex justify-content-end align-items-top userResponse"
-                >
-                  <span className="px-3 py-1" style={myStyle}>
+              <div
+                key={ind}
+                className="exploreBtn w-100 d-flex justify-content-between flex-column"
+              >
+                <div className="d-flex  align-items-top userResponse">
+                  <p className="px-3 py-1" style={myStyle}>
                     {user}
-                  </span>
+                  </p>
                   <div className="userResLogo">
                     <FaCircleUser className="ms-1 mt-1" />
                   </div>

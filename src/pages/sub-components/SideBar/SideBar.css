@@ -73,6 +73,10 @@
   .header-menu {
     font-size: 22px;
   }
+  .items-container {
+    overflow: auto;
+    height: calc(100dvh - 250px);
+  }
 }
 
 @media screen and (max-width: 1000px) {

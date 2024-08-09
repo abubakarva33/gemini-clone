@@ -5,9 +5,11 @@
 }
 .userResponse {
   max-width: 50%;
+  align-self: flex-end;
 }
 .userResLogo {
   font-size: 30px;
+  margin-top: -10px;
 }
 
 @media screen and (max-width: 4000px) {
