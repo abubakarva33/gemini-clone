@@ -56,8 +56,8 @@ const SideBar = () => {
         >
           <LuSearchCode /> Explore Developer
         </button>
-        <div className="d-flex align-items-center flex-column mt-2">
-          <span className="align-self-start px-2">Recent</span>
+        <span className="align-self-start px-2 mt-2">Recent</span>
+        <div className="d-flex align-items-center flex-column-reverse">
           {Object.values(history).map((item, ind) => (
             <Link
               key={ind}

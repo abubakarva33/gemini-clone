@@ -58,6 +58,7 @@ const InputSection = ({ id, setIsLoading }) => {
       console.log(error);
     } finally {
       setIsLoading(false);
+      setInputValue("");
     }
   };
 
@@ -79,12 +80,7 @@ const InputSection = ({ id, setIsLoading }) => {
         onChange={(e) => setInputValue(e.target.value)}
       />
       <div className="inputBtnSection mb-2">
-        <span>
-          <Tooltip placement="top" title="Upload Image">
-            <BiImageAdd />
-          </Tooltip>
-        </span>
-        <span>
+        <span style={{ cursor: "pointer" }}>
           <Tooltip placement="top" title="Use Microphone">
             <HiOutlineMicrophone onClick={voiceHandler} />
           </Tooltip>

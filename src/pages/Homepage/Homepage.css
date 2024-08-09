@@ -182,9 +182,11 @@
   .logo {
     font-size: 25px;
   }
-  .ant-input:placeholder-shown,
   .exploreBtn {
     font-size: 18px;
+  }
+  .ant-input:placeholder-shown {
+    font-size: 16px;
   }
   .inputBtnSection button,
   .inputBtnSection span {
