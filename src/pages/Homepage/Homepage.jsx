@@ -45,9 +45,9 @@ const Homepage = () => {
         </div>
       )}
 
-      <HotQuestions {...{ id, setIsLoading }} />
+      <HotQuestions {...{ id, setIsLoading, loading }} />
       <div className="inputContainer d-flex align-items-center flex-column px-4 ">
-        <InputSection {...{ id, setIsLoading }} />
+        <InputSection {...{ id, setIsLoading, loading }} />
         <Footer />
       </div>
 

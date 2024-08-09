@@ -13,7 +13,7 @@ import SpeechRecognition, { useSpeechRecognition } from "react-speech-recognitio
 import { addOpacityToColor } from "../../utilities/utilities";
 import { devDetails } from "../../utilities/devInfo";
 
-const InputSection = ({ id, setIsLoading }) => {
+const InputSection = ({ id, setIsLoading, loading }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isRecording, setIsRecording] = useState(false);
@@ -85,7 +85,7 @@ const InputSection = ({ id, setIsLoading }) => {
             <HiOutlineMicrophone onClick={voiceHandler} />
           </Tooltip>
         </span>
-        <button onClick={chatResponseHandler} style={{ color: textColor }}>
+        <button disabled={loading} onClick={chatResponseHandler} style={{ color: textColor }}>
           <LuSendHorizonal />
         </button>
       </div>
