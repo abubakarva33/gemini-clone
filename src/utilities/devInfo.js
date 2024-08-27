@@ -13,6 +13,6 @@ Github: https://github.com/abubakarva33
 Portfolio: https://abubakar375.netlify.app/
 Linkedin: https://www.linkedin.com/in/abubakar375
 Fiverr: https://www.fiverr.com/abubakar_va33
-Upwork:
+Upwork:https://www.upwork.com/freelancers/~01a637a08854f85f67
 
 `;
