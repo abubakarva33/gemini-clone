@@ -25,6 +25,11 @@
   align-items: center;
   justify-content: center;
 }
+.items-container {
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+}
 
 @media screen and (max-width: 4000px) {
   .header {
@@ -76,6 +81,7 @@
   .items-container {
     overflow: auto;
     height: calc(100dvh - 250px);
+    flex-direction: column;
   }
 }
 
