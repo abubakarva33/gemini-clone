@@ -41,9 +41,9 @@ const Homepage = () => {
           className="overflow-y-auto px-4 w-100"
         >
           <Response id={id} className="response " />
-          <Spin spinning={loading} height={100}></Spin>
         </div>
       )}
+      <Spin spinning={loading} height={100}></Spin>
 
       <HotQuestions {...{ id, setIsLoading, loading }} />
       <div className="inputContainer d-flex align-items-center flex-column px-4 ">
