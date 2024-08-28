@@ -9,6 +9,7 @@ import Footer from "../sub-components/Footer";
 import Header from "../sub-components/Header";
 import CustomizeInventory from "../sub-components/CustomizeInventory/CustomizeInventory";
 import HotQuestions from "../sub-components/HotQuestions";
+import Spinner from "../sub-components/Spinner";
 
 const Homepage = () => {
   const { id } = useParams();
@@ -44,7 +45,8 @@ const Homepage = () => {
         </div>
       )}
       <div className="px-5" style={{ alignSelf: "flex-start", justifySelf: "" }}>
-        <Spin spinning={loading} height={100}></Spin>
+        {/* <Spin spinning={loading} height={100}></Spin> */}
+        <Spinner loading={loading} />
       </div>
       {!loading && <HotQuestions {...{ id, setIsLoading, loading }} />}
       <div className="inputContainer d-flex align-items-center flex-column px-4 ">
