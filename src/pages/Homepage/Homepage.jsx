@@ -43,11 +43,10 @@ const Homepage = () => {
           <Response id={id} className="response " />
         </div>
       )}
-      <div className="px-5" style={{ alignSelf: "flex-start" }}>
+      <div className="px-5" style={{ alignSelf: "flex-start", justifySelf: "" }}>
         <Spin spinning={loading} height={100}></Spin>
       </div>
-
-      <HotQuestions {...{ id, setIsLoading, loading }} />
+      {!loading && <HotQuestions {...{ id, setIsLoading, loading }} />}
       <div className="inputContainer d-flex align-items-center flex-column px-4 ">
         <InputSection {...{ id, setIsLoading, loading }} />
         <Footer />
