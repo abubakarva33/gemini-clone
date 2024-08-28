@@ -1,16 +1,18 @@
-import { useState } from "react";
 import { PropagateLoader } from "react-spinners";
 
 const Spinner = ({ loading }) => {
-  //   let [loading, setLoading] = useState(true);
-  //   let [color, setColor] = useState("#ffffff");
+  const override = {
+    display: "block",
+    margin: "0 50px",
+    borderColor: "blue",
+  };
   return (
     <div className="sweet-loading">
       <PropagateLoader
-        color={"#red"}
+        color={"blue"}
         loading={loading}
-        // cssOverride={override}
-        size={150}
+        cssOverride={override}
+        size={15}
         aria-label="Loading Spinner"
         data-testid="loader"
       />
